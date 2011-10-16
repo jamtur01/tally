@@ -1,15 +1,17 @@
 <table>
   <tr>
-    <th colspan="3"><%= @title %> The Tally</th>
+    <th colspan="3">The Tally</th>
   </tr>
   <tr>
     <td class="sh">User</td>
+    <td class="sh">Email</td>
     <td class="sh">Count</td>
   </tr>
   <% @users.each do |user| %>
       <tr class="<%= cycle %>">
-        <td><a href=/user/detail/<%= user[:user] %>><%= user["user"] %></a></td>
-        <td><a href=/user/detail/<%= user["count"] %>><%= user["count"] %></a></td>
+        <td><a href=/user/<%= user["id"] %>><%= user["user"] %></a></td>
+        <td><a href=/user/<%= user["id"] %>><%= user["email"] %></a></td>
+        <td><a href=/user/<%= user["id"] %>><%= user["count"] %></a></td>
       </tr>
   <% end %>
 </table>

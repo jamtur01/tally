@@ -11,14 +11,16 @@ Gem::Specification.new do |s|
   s.email = "james@lovedthanlost.net"
   s.homepage = "http://github.com/jamtur01/tally"
 
-  s.add_dependency "sinatra",
-  s.add_dependency "data_mapper",
-  s.add_dependency "rest_client",
-  s.add_dependency "dm-sqlite-adapter",
-  s.add_dependency "dm-adjust",
-  s.add_dependency "json",
+  s.add_dependency "sinatra"
+  s.add_dependency "data_mapper"
+  s.add_dependency "httpclient"
+  s.add_dependency "dm-sqlite-adapter"
+  s.add_dependency "dm-adjust"
+  s.add_dependency "json"
 
-  s.bindir       = "bin"
-  s.executables  = %w( tally )
-  s.require_path = 'lib'
+  s.has_rdoc      = false
+  s.bindir        = [ "bin" ]
+  s.executables   = [ "tally", "tally-submit" ]
+  s.require_paths = [ "lib" ]
+  s.files         = Dir.glob("{views,public,db,bin,lib}/**/*") + %w(LICENSE README.md TODO.md Gemfile config.ru Rakefile)
 end

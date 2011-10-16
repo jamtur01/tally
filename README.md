@@ -4,6 +4,19 @@ Tally
 Description
 -----------
 
+A Tally board for a Triage that takes Redmine updates
+and counts who performed them. This allows us to track and score who
+contributed the most updates and edits to tickets.
+
+Assumes the Redmine instance has the plugin:
+
+    https://github.com/7citylearning/updates_notifier
+
+With the target URL for updates to set to the Tally server, for example:
+
+    http://example.com:4567/tally
+
+
 Requirements
 ------------
 
@@ -12,7 +25,10 @@ Requirements
 * `dm-sqlite-adapter`
 * `dm-adjust`
 * `sinatra`
-* `rest_client`
+
+If you want to run the tally-submit testing tool you also need:
+
+* `httpclient`
 
 Installation & Usage
 -------------------
@@ -30,6 +46,12 @@ Installation & Usage
     file you can use with `rackup` if required.
 
 3.  Browse to the Tally server at http://example.com:4567
+
+4.  You can test the submission of events using the tally-submit
+    command like so:
+
+        $ tally-submit --server=http://example.com:4567/tally \
+        --first=James --last=Turnbull --email=james@lovedthanlost.net
 
 Author
 ------

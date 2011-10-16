@@ -34,16 +34,21 @@ optparse = OptionParser.new do |opts|
   opts.separator ''
   opts.separator 'Configuration options:'
 
+  options[:server] = "http://localhost:4567/tally"
   opts.on( '-s', '--server SERVER', 'The server address for Tally.') { |server|
     options[:server] = server
   }
 
-  opts.on( '-u', '--user USER', 'The user to submit.') { |user|
-    options[:user] = user
+  opts.on( '-f', '--first FIRST', 'The first name of the user to submit.') { |first|
+    options[:first] = first
   }
 
-  opts.on( '-t', '--ticket TICKET', 'The ticket number to submit.') { |ticket|
-    options[:ticket] = ticket
+  opts.on( '-l', '--last LAST', 'The last name of the user to submit.') { |last|
+    options[:last] = last
+  }
+
+  opts.on( '-e', '--email EMAIL', 'The email to submit.') { |email|
+    options[:email] = email
   }
 
   opts.on_tail( '-v', '--version', 'Show version') do
@@ -62,6 +67,13 @@ end
 
 begin
   optparse.parse!
+  mandatory = [:first, :last, :email]
+  missing = mandatory.select{ |param| options[param].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit
+  end
   Tally::Client.new(options)
 rescue OptionParser::InvalidArgument, OptionParser::InvalidOption, OptionParser::MissingArgument
   puts $!.to_s

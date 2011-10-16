@@ -1,4 +1,4 @@
- html, body {
+html, body {
  margin: 0;
  padding: 0;
  border: 0;
@@ -9,7 +9,7 @@
  width: 80%;
  max-width: 1000px;
  background-color:#fff;
- border: solid #98bf21 medium; /* remove if you don't want a border */
+ border: solid #a09dc4 medium; /* remove if you don't want a border */
  margin: 2em auto;
  padding: 1em;
  font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
@@ -30,7 +30,7 @@ table {
 td, th {
   font-size: 1em;
   text-align: center;
-  border: 1px solid #98bf21;
+  border: 1px solid #a09dc4;
   padding: 3px 7px 2px 7px;
 }
 th {
@@ -38,7 +38,7 @@ th {
   text-align: center;
   padding-top: 5px;
   padding-bottom: 4px;
-  background-color: #A7C942;
+  background-color: #a09dc4;
   color: #ffffff;
 }
 td.sh {

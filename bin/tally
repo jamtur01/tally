@@ -21,7 +21,7 @@ $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
 
 require 'rubygems'
 require 'optparse'
-require 'tally/server'
+require 'tally'
 require 'tally/version'
 
 options = {}
@@ -33,21 +33,6 @@ optparse = OptionParser.new do |opts|
 
   opts.separator ''
   opts.separator 'Configuration options:'
-
-  opts.on( '-s', '--redis-server SERVER', 'The server address Redis is running on.') { |rs|
-    Tally::Server::Application.set :redis_server, rs
-  }
-  opts.on( '-p', '--redis-port PORT', 'The port Redis is running on.') { |rp|
-    Tally::Server::Application.set :redis_port, rp
-  }
-
-  opts.on( '-u', '--user USER', 'The user to submit.') { |user|
-    Tally::Server::Application.set :redmine_user, user
-  }
-
-  opts.on( '-t', '--ticket TICKET', 'The ticket number to submit.') { |ticket|
-    Tally::Server::Application.set :redmine_ticket, ticket
-  }
 
   opts.on_tail( '-v', '--version', 'Show version') do
     puts "Tally version #{Tally::Version::VERSION}"
@@ -65,7 +50,7 @@ end
 
 begin
   optparse.parse!
-  Tally::Server::Application.run!
+  Tally::Application.run!
 rescue OptionParser::InvalidArgument, OptionParser::InvalidOption, OptionParser::MissingArgument
   puts $!.to_s
   puts optparse
