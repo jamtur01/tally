@@ -1,19 +1,21 @@
 <html>
   <head>
-    <!-- <meta http-equiv="refresh" content="5"> -->
     <title>The Tally</title>
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-    <div id="main">
-      <h1><a href="/">The Tally</a></h1>
-      <p align="center">
+    <%= yield %>
+
+    <div id="footer">
+      <p class="left">
+        <a href="https://github.com/jamtur01/tally">Tally <%= Tally::Version::VERSION %></a>
       </p>
-
-      <hr>
-
-      <p align="center"> <%= yield %> </p>
-      <p align="center"><a href="https://github.com/jamtur01/tally">Tally <%= Tally::Version::VERSION %></a></p>
+      <span class="right">
+        <a id="top" href="#">&#9650; Top</a>
+      </span>
+      <div class="clear_both">
+      </div>
     </div>
+
   </body>
 </html>

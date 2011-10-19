@@ -1,17 +1,32 @@
+<br />
+
+<h1><a href="/">The Tally</a></h1>
+
+<p class="large_serif"></p>
+
+<ul id="tallies">
+  <p class="<%= cycle %>">
+  <blockquote>
+
 <table>
   <tr>
-    <th colspan="3">The Tally</th>
+    <td class="mt">Rank</td>
+    <td class="mt">User</td>
+    <td class="mt">Email</td>
+    <td class="mt">Score</td>
   </tr>
-  <tr>
-    <td class="sh">User</td>
-    <td class="sh">Email</td>
-    <td class="sh">Count</td>
-  </tr>
+  <% i = 0 %>
   <% @users.each do |user| %>
-      <tr class="<%= cycle %>">
+    <% i += 1 %>
+    <tr class="<%= cycle %>">
+        <td><a href=/user/<%= user["id"] %>><%= i %></a></td>
         <td><a href=/user/<%= user["id"] %>><%= user["user"] %></a></td>
         <td><a href=/user/<%= user["id"] %>><%= user["email"] %></a></td>
         <td><a href=/user/<%= user["id"] %>><%= user["count"] %></a></td>
       </tr>
   <% end %>
 </table>
+
+  </blockquote>
+  </p>
+</ul>

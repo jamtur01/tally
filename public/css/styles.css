@@ -1,36 +1,249 @@
-html, body {
- margin: 0;
- padding: 0;
- border: 0;
- font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
+/* Document */
+
+html
+{
+  background: #141414;
 }
- body { background-color: #ccc; /* change the color to your background color */ }
-#main {
- width: 80%;
- max-width: 1000px;
- background-color:#fff;
- border: solid #a09dc4 medium; /* remove if you don't want a border */
- margin: 2em auto;
- padding: 1em;
- font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
+
+body
+{
+  width: 46em;
+  max-width: 95%;
+  margin: 0 auto;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  color: #ccc;
 }
-#main h1 {
-  text-align: center;
-  color: #000000;
-}
-#main h1 a {
+
+/* Type */
+
+a:link,
+a:visited
+{
+  color: #6c8fbf;
   text-decoration: none;
-  color: #000000;
 }
+
+a:hover,
+a:focus,
+a:active
+{
+  background: #000;
+  color: #ff3366;
+}
+
+h1,
+h2,
+h3,
+.large_serif
+{
+  font-family: 'Georgia', 'DejaVu Serif', 'Times', 'Times New Roman', serif;
+}
+
+h1,
+h2
+{
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3
+{
+  color: #c2e5a6;
+}
+
+h1
+{
+  margin-bottom: 1em;
+  font-size: 3em;
+}
+
+h2
+{
+  line-height: 1.4em;
+  font-size: 2em;
+}
+
+.large_serif
+{
+  line-height: 1.6em;
+  font-size: 1.5em;
+}
+
+/* Blocks */
+
+.left
+{
+  float: left;
+}
+
+.right
+{
+  float: right;
+}
+
+.clear_both
+{
+  clear: both;
+}
+
+.hide
+{
+  position: absolute;
+  top: -9999em;
+  left: -9999em;
+}
+
+/* Layout */
+
+div#notification
+{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 1.2em 0;
+  background: #444;
+  font-size: 1.3em;
+  text-align: center;
+  color: #ccc;
+}
+
+ul#tallies
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+  ul#tallies > li,
+  div#tally
+  {
+    padding: 1em;
+    border-top: 1px dotted #333;
+  }
+  
+  div#tally
+  {
+    border-bottom: 1px dotted #333;
+  }
+  
+  ul#tallies > li.even,
+  div#tally
+  {
+    background: #191919;
+  }
+  
+  ul#tallies > li:hover,
+  div#tally:hover
+  {
+    background: #252525;
+  }
+  
+  ul#tallies li ul.meta,
+  div#tally ul.meta
+  {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 0.75em;
+    color: #777;
+    text-align: right;
+  }
+  
+  ul#tallies li ul.meta,
+  div#tally ul.meta
+  {
+    padding-bottom: 2em;
+  }
+    
+    ul#tallies li ul.meta li,
+    div#tally ul.meta li
+    {
+      display: inline;
+      display: -webkit-inline-box;
+      margin: 0 0.5em;
+    }
+    
+      ul#tallies li ul.meta li a,
+      div#tally ul.meta li a
+      {
+        color: #777;
+      }
+      
+      ul#tallies li ul.meta li a:hover,
+      ul#tallies li ul.meta li a:focus,
+      ul#tallies li ul.meta li a:active,
+      div#tally ul.meta li a:hover,
+      div#tally ul.meta li a:focus,
+      div#tally ul.meta li a:active
+      {
+        background: none;
+        color: #ccc;
+      }
+      
+      ul#tallies li blockquote,
+      div#tally blockquote
+      {
+        margin: 0;
+        padding: 0;
+      }
+
+        ul#tallies li blockquote p,
+        div#tally blockquote p
+        {
+          margin: 0;
+        }
+
+        ul#tallies li blockquote p span.identifier,
+        div#tally blockquote p span.identifier
+        {
+          float: left;
+          display: block;
+          width: 15%;
+          margin-right: 1em;
+          text-align: right;
+          clear: left;
+          overflow: hidden;
+        }
+
+        div#tally blockquote p#preview span.identifier
+        {
+          font-weight: bold;
+        }
+
+        ul#tallies li blockquote p span.text,
+        div#tally blockquote p span.text
+        {
+          float: left;
+          display: block;
+          width: 80%;
+        }
+        
+div#footer
+{
+  margin-top: 2.25em;
+  padding: 3.25em 0;
+  border-top: 1px solid #777;
+}
+
+  div#footer p
+  {
+    margin: 0;
+    padding: 0;
+  }
+
 table {
-  font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 95%;
 }
 td, th {
   font-size: 1em;
   text-align: center;
-  border: 1px solid #a09dc4;
   padding: 3px 7px 2px 7px;
 }
 th {
@@ -38,8 +251,6 @@ th {
   text-align: center;
   padding-top: 5px;
   padding-bottom: 4px;
-  background-color: #a09dc4;
-  color: #ffffff;
 }
 td.sh {
   font-weight: bold;
@@ -51,10 +262,13 @@ td.mt {
 td.mtv {
     text-align: right;
 }
+
 tr.even td {
   color: #000000;
+  text-align: left;
 }
+
 tr.odd td {
-  color: #000000;
-  background-color: #EAF2D3;
+  color: #EAF2D3;
+  text-align: left;
 }

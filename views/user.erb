@@ -1,5 +1,7 @@
-<table>
-  <tr>
-    <th colspan="3"><%= @tally["user"] %> has updated <%= @tally["count"] %> tickets</th>
-  </tr>
-</table>
+<br />
+
+<h1><a href="/">Tally</a> &raquo; <%= @tally["user"] %></h1>
+
+<div id="tally">
+  <%= @tally["user"] %> has updated <%= @tally["count"] %> tickets
+</div>
