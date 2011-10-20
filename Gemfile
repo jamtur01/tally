@@ -2,7 +2,9 @@
 source :gemcutter
 #
 gem "sinatra"
-gem "rack"
 gem "rake"
-gem "rspec-core"
 gem "json"
+gem "data_mapper"
+gem "dm-sqlite-adapter"
+gem "dm-adjust"
+
