@@ -2,6 +2,7 @@ require 'sinatra'
 require 'json'
 require 'data_mapper'
 require 'dm-adjust'
+require 'pp'
 
 module Tally
     class Application < Sinatra::Base
@@ -53,8 +54,11 @@ module Tally
 
       post '/tally/?' do
         session = JSON.parse(request.body.read.to_s)
+        pp session
         user = "#{session["user"]["firstname"]} #{session["user"]["lastname"]}"
+        pp user
         email = session["user"]["email"]
+        pp email
         update_count(user,email)
       end
 
