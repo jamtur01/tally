@@ -53,8 +53,9 @@ module Tally
       end
 
       post '/tally/?' do
+        pp "Request body: #{request.body.read.to_s}"
         session = JSON.parse(request.body.read.to_s)
-        pp session
+        pp "Sessions #{session}"
         user = "#{session["user"]["firstname"]} #{session["user"]["lastname"]}"
         pp user
         email = session["user"]["email"]
