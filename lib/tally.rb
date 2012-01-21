@@ -52,10 +52,11 @@ module Tally
       end
 
       post '/tally/?' do
-        session = JSON.parse(request.body.read.to_s)
-        user = "#{session["user"]["firstname"]} #{session["user"]["lastname"]}"
-        email = session["user"]["email"]
-        update_count(user,email)
+        session = JSON.parse(request.body.read)
+        user = JSON.parse(session["user"])
+        person = "#{user["firstname"]} #{user["lastname"]}"
+        email = user["email"]
+        update_count(person,email)
       end
 
     end
